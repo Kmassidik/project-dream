@@ -1,5 +1,3 @@
-
-
 class UserController { 
     
     static async getLogin(req, res) {
@@ -9,6 +7,8 @@ class UserController {
             res.status(500).json(error)
         }
     }
+
+    
 
 }
 

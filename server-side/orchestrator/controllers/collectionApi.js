@@ -12,7 +12,7 @@ class ControllerCollectionApi {
                 url: baseUrlUser + "/getlogin"
             })
 
-            console.log(data, "-> DATA YAA");
+            res.status(200).json(data)
             
         } catch (error) {
             console.log(error);
