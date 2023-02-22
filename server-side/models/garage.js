@@ -15,11 +15,61 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Garage.init({
-    type: DataTypes.STRING,
-    merk: DataTypes.STRING,
-    model: DataTypes.STRING,
-    license_plate: DataTypes.STRING,
-    serial: DataTypes.STRING
+
+    type: {
+      type: DataTypes.STRING,
+      validate: {
+        isIn: {
+          args: [['car', 'motorcycle']],
+          msg: "Must be 'car' or 'motorcycle'"
+        },
+        notEmpty: {
+          args: true,
+          msg: "Type cannot empty"
+        }
+      }
+    },
+
+    merk: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Merk cannot empty"
+        }
+      }
+    },
+
+    model: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Model cannot empty"
+        }
+      }
+    },
+
+    license_plate: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Plat Nomor cannot empty"
+        }
+      }
+    },
+
+    serial: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Please check serial"
+        }
+      }
+    }
+
   }, {
     sequelize,
     modelName: 'Garage',

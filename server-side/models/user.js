@@ -16,11 +16,49 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    serial: DataTypes.STRING,
-    phone_number: DataTypes.STRING,
-    password: DataTypes.STRING,
-    locked: DataTypes.BOOLEAN,
+
+    serial: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Please Check Again Serial"
+        }
+      }
+    },
+
+    phone_number: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Phone Number Cannot Empty"
+        }
+      }
+    },
+
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Password Cannot Empty"
+        }
+      }
+    },
+
+    locked: {
+      type: DataTypes.BOOLEAN,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Locked Cannot Empty"
+        }
+      }
+    },
+
     locked_reason: DataTypes.TEXT
+    
   }, {
     sequelize,
     modelName: 'User',
