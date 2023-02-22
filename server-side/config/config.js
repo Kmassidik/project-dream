@@ -1,10 +1,11 @@
-{
+require('dotenv').config();
+module.exports = {
   "development": {
-    "username": "postgres",
-    "password": "GW29224B",
+    "username": process.env.USERNAME_DB_LOCAL,
+    "password": process.env.PASSWORD_DB_LOCAL || "",
     "database": "Parking-Apps",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host": process.env.HOST_DB_LOCAL,
+    "dialect": process.env.DIALECT_DB_LOCAL
   },
   "test": {
     "username": "root",
